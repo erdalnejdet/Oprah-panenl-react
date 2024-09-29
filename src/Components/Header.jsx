@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { useAuth } from '../context/AuthContext'; // AuthContext'i import edin
+
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) return null; 
 
   return (
     <div>
